@@ -9,15 +9,8 @@ env:
 phases:
   build:
     commands:
-      - echo "Hello World"
-      # - key=$(echo "sikandar-keypair-ohio")
-      # - echo $key
-      - echo '{"Parameters":{"InstanceType":"'$INSTANCE_TYPE'"}}' | jq . >output.json
-      - cat output.json 
-  # build:
-  #   commands:
-  #     - aws cloudformation deploy --template-file template.yaml --stack-name sample-stack --parameter-overrides InstanceType=$INSTANCE_TYPE KeyName=$KEY_NAME AmiId=$AMI_ID TagName=$TAG_NAME
-  
+      - echo '{"ParameterKey":"'$yasir'"}' | jq --arg ParameterKey ParameterValue '. + {ParameterValue:"'$yasir2'"}' > sampleoutput.json
+      - cat output.json   
 artifacts:
   files:
     - output.json
