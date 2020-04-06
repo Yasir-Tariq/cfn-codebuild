@@ -7,10 +7,15 @@ env:
     TagName: "cfn-cp3"
 
 phases:
+  pre_build:
+    commands:
+      - echo "Installing jq..."
+      - apt update -y
+      - apt install jq -y
   build:
     commands:
       # - echo '{"ParameterKey":"'TagName'"}' | jq --arg ParameterKey ParameterValue '. + {ParameterValue:"'$TagName'"}' >output.json
-      - jq -n '[{ParameterKey: "TagName",ParamterValue: "$TagName"}]' >output.json
+      - jq -n '[{ParameterKey:"TagName",ParameterValue:"$TagName"}]' >output.json
       - cat output.json   
 artifacts:
   files:
