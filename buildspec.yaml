@@ -5,18 +5,14 @@ env:
     # KEY_NAME: "yasirKP-ohio"
     # AMI_ID: "ami-0fc20dd1da406780b"
     TagName: "cfn-cp3"
+    KeyName: "yasirKP-ohio"
+    InstanceType: "t2.micro"
+    AmiId: "ami-0fc20dd1da406780b"
 
 phases:
-  # pre_build:
-  #   commands:
-  #     - echo "Installing jq..."
-  #     - apt update -y
-  #     - apt install jq -y
   build:
     commands:
-      # - echo '{"ParameterKey":"'TagName'"}' | jq --arg ParameterKey ParameterValue '. + {ParameterValue:"'$TagName'"}' >output.json
-      # - jq -n '[{ParameterKey:"TagName",ParameterValue:"'$TagName'"}]' >output.json
-      - jq -n '{Parameters:{TagName:"'$TagName'"}}' >output.json
+      - jq -n '{Parameters:{TagName:"'$TagName'",KeyName:"'$KeyName'",InstanceType:"'$InstanceType'",AmiId:"'$AmiId'"}}' >output.json
       - cat output.json   
 artifacts:
   files:

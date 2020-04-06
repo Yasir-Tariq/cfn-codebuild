@@ -1,21 +1,21 @@
 Description: "testing params using codepipeline."
 Parameters:
-  # InstanceType:
-  #   Type: String
-  # KeyName:
-  #   Type: AWS::EC2::KeyPair::KeyName
-  #   ConstraintDescription: must be a valid and existing key pair name.
-  # AmiId:
-  #   Type: String
+  InstanceType:
+    Type: String
+  KeyName:
+    Type: AWS::EC2::KeyPair::KeyName
+    ConstraintDescription: must be a valid and existing key pair name.
+  AmiId:
+    Type: String
   TagName:
     Type: String
 Resources:
   Ec2:
     Type: AWS::EC2::Instance
     Properties:
-      InstanceType: t2.micro
-      KeyName: yasirKP-ohio
-      ImageId: ami-0fc20dd1da406780b
+      InstanceType: !Ref InstanceType
+      KeyName: !Ref KeyName
+      ImageId: !Ref AmiId
       NetworkInterfaces:
       - DeviceIndex: '0'
         AssociatePublicIpAddress: 'true'
