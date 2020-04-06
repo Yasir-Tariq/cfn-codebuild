@@ -4,12 +4,12 @@ env:
     # INSTANCE_TYPE: "t2.micro"
     # KEY_NAME: "yasirKP-ohio"
     # AMI_ID: "ami-0fc20dd1da406780b"
-    TAG_NAME: "cfn-cp3"
+    TagName: "cfn-cp3"
 
 phases:
   build:
     commands:
-      - echo '{"ParameterKey":"'TAG_NAME'"}' | jq --arg ParameterKey ParameterValue '. + {ParameterValue:"'$TAG_NAME'"}' >output.json
+      - echo '{"ParameterKey":"'TagName'"}' | jq --arg ParameterKey ParameterValue '. + {ParameterValue:"'$TagName'"}' >output.json
       - cat output.json   
 artifacts:
   files:
