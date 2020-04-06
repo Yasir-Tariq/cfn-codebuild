@@ -1,15 +1,12 @@
 version: 0.2
 env:
   variables:
-    INSTANCE_TYPE: "t2.micro"
-    KEY_NAME: "yasirKP-ohio"
-    AMI_ID: "ami-0fc20dd1da406780b"
+    # INSTANCE_TYPE: "t2.micro"
+    # KEY_NAME: "yasirKP-ohio"
+    # AMI_ID: "ami-0fc20dd1da406780b"
     TAG_NAME: "cfn-cp3"
 
 phases:
-  # install:
-  #   commands:
-  #     - key=$(echo "sikandar-keypair-ohio")
   build:
     commands:
       - echo "Hello World"

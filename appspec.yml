@@ -1,0 +1,23 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ubuntu/myapp
+permissions:
+  - object: /
+    owner: ubuntu
+    group: ubuntu
+    mode: 777
+    type:
+      - file
+  - object: /
+    owner: ubuntu
+    group: ubuntu
+    mode: 777
+    type:
+      - directory
+hooks:
+  DeploymentStart:
+    - location: create_stack.sh
+      timeout: 300
+      runas: ubuntu

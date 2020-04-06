@@ -1,17 +1,5 @@
 [
     {
-      "ParameterKey": "InstanceType",
-      "ParameterValue": "t2.micro"
-    }, 
-    {
-      "ParameterKey": "KeyName",
-      "ParameterValue": "yasirKP-ohio"
-    },
-    {
-        "ParameterKey": "AmiId",
-        "ParameterValue": "ami-0fc20dd1da406780b"
-    }, 
-    {
         "ParameterKey": "TagName",
         "ParameterValue": "cfn-cp"
     }
