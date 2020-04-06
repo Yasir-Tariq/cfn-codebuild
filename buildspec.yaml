@@ -9,7 +9,8 @@ env:
 phases:
   build:
     commands:
-      - echo '{"ParameterKey":"'TagName'"}' | jq --arg ParameterKey ParameterValue '. + {ParameterValue:"'$TagName'"}' >output.json
+      # - echo '{"ParameterKey":"'TagName'"}' | jq --arg ParameterKey ParameterValue '. + {ParameterValue:"'$TagName'"}' >output.json
+      - jq -n '[{ParameterKey: "TagName",ParamterValue: "$TagName"}]'
       - cat output.json   
 artifacts:
   files:
