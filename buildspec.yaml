@@ -13,9 +13,9 @@ phases:
   build:
     commands:
       - echo "Hello World"
-      - key=$(echo "sikandar-keypair-ohio")
-      - echo $key
-      - echo '{"Parameters":{"key":"'$key'"}}' | jq . >output.json
+      # - key=$(echo "sikandar-keypair-ohio")
+      # - echo $key
+      - echo '{"Parameters":{"InstanceType":"'$INSTANCE_TYPE'"}}' | jq . >output.json
       - cat output.json 
   # build:
   #   commands:
