@@ -9,7 +9,7 @@ env:
 phases:
   build:
     commands:
-      - echo '{"ParameterKey":"'$yasir'"}' | jq --arg ParameterKey ParameterValue '. + {ParameterValue:"'$yasir2'"}' > sampleoutput.json
+      - echo '{"ParameterKey":"'$yasir'"}' | jq --arg ParameterKey ParameterValue '. + {ParameterValue:"'$yasir2'"}' >output.json
       - cat output.json   
 artifacts:
   files:
