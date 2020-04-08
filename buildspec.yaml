@@ -1,10 +1,10 @@
 version: 0.2
-env:
-  variables:
-    TagName: "cfn-cp3"
-    KeyName: "yasirKP-ohio"
-    InstanceType: "t2.micro"
-    AmiId: "ami-0fc20dd1da406780b"
+# env:
+#   variables:
+#     TagName: "cfn-cp3"
+#     KeyName: "yasirKP-ohio"
+#     InstanceType: "t2.micro"
+#     AmiId: "ami-0fc20dd1da406780b"
 
 phases:
   build:
