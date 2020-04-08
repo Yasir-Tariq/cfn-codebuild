@@ -1,9 +1,6 @@
 version: 0.2
 env:
   variables:
-    # INSTANCE_TYPE: "t2.micro"
-    # KEY_NAME: "yasirKP-ohio"
-    # AMI_ID: "ami-0fc20dd1da406780b"
     TagName: "cfn-cp3"
     KeyName: "yasirKP-ohio"
     InstanceType: "t2.micro"
