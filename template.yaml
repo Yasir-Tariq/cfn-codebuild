@@ -27,16 +27,31 @@ Resources:
   Role:
     Type: AWS::IAM::Role
     Properties:
-      ManagedPolicyArns:
-        - 'arn:aws:iam::aws:policy/AmazonEC2FullAccess'
       AssumeRolePolicyDocument:
+        Version: "2012-10-17"
         Statement:
-        - Action: ['sts:AssumeRole']
-          Effect: Allow
-          Principal:
-            Service: [ec2.amazonaws.com]
-        Version: '2012-10-17'
-      Path: /
+          -
+            Effect: "Allow"
+            Principal:
+              Service:
+                - "ec2.amazonaws.com"
+            Action:
+              - "sts:AssumeRole"
+      Path: "/"
+  RolePolicies:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: "MyPolicy"
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          -
+            Effect: "Allow"
+            Action: "ec2:*"
+            Resource: "*"
+      Roles:
+        -
+          Ref: "Role"
   InstanceProfile:
     Type: AWS::IAM::InstanceProfile
     Properties:
