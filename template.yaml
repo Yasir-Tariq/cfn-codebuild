@@ -13,6 +13,7 @@ Resources:
   Ec2:
     Type: AWS::EC2::Instance
     Properties:
+       IamInstanceProfile: !Ref InstanceProfile
       InstanceType: !Ref InstanceType
       KeyName: !Ref KeyName
       ImageId: !Ref AmiId
@@ -36,4 +37,12 @@ Resources:
             Service: [ec2.amazonaws.com]
         Version: '2012-10-17'
       Path: /
+  InstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      InstanceProfileName: insprofile
+      Path: /
+      Roles:
+        -
+          Ref: "Role"
   
