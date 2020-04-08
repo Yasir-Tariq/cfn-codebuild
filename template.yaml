@@ -13,7 +13,7 @@ Resources:
   Ec2:
     Type: AWS::EC2::Instance
     Properties:
-      IamInstanceProfile: !Ref InstanceProfile
+      # IamInstanceProfile: !Ref InstanceProfile
       InstanceType: !Ref InstanceType
       KeyName: !Ref KeyName
       ImageId: !Ref AmiId
@@ -24,40 +24,40 @@ Resources:
       Tags:
       - Key: Name
         Value: !Ref TagName
-  Role:
-    Type: AWS::IAM::Role
-    Properties:
-      AssumeRolePolicyDocument:
-        Version: "2012-10-17"
-        Statement:
-          -
-            Effect: "Allow"
-            Principal:
-              Service:
-                - "ec2.amazonaws.com"
-            Action:
-              - "sts:AssumeRole"
-      Path: "/"
-  RolePolicies:
-    Type: AWS::IAM::Policy
-    Properties:
-      PolicyName: "MyPolicy"
-      PolicyDocument:
-        Version: "2012-10-17"
-        Statement:
-          -
-            Effect: "Allow"
-            Action: "ec2:*"
-            Resource: "*"
-      Roles:
-        -
-          Ref: "Role"
-  InstanceProfile:
-    Type: AWS::IAM::InstanceProfile
-    Properties:
-      InstanceProfileName: insprofile
-      Path: /
-      Roles:
-        -
-          Ref: "Role"
+  # Role:
+  #   Type: AWS::IAM::Role
+  #   Properties:
+  #     AssumeRolePolicyDocument:
+  #       Version: "2012-10-17"
+  #       Statement:
+  #         -
+  #           Effect: "Allow"
+  #           Principal:
+  #             Service:
+  #               - "ec2.amazonaws.com"
+  #           Action:
+  #             - "sts:AssumeRole"
+  #     Path: "/"
+  # RolePolicies:
+  #   Type: AWS::IAM::Policy
+  #   Properties:
+  #     PolicyName: "MyPolicy"
+  #     PolicyDocument:
+  #       Version: "2012-10-17"
+  #       Statement:
+  #         -
+  #           Effect: "Allow"
+  #           Action: "ec2:*"
+  #           Resource: "*"
+  #     Roles:
+  #       -
+  #         Ref: "Role"
+  # InstanceProfile:
+  #   Type: AWS::IAM::InstanceProfile
+  #   Properties:
+  #     InstanceProfileName: insprofile
+  #     Path: /
+  #     Roles:
+  #       -
+  #         Ref: "Role"
   
